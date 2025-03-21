@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../Button'; 
-import { ContentContainer } from './style'; 
-import { Container, Row, Column } from '../../style';
+import { Content as ContentLayout, Row, Column } from './style'; 
+import Input from '../Input';
 
-const Content = () => {
+const ContentComponent = () => { 
   const [currentNumber, setCurrentNumber] = useState("0");
   const [randomValues, setRandomValues] = useState([]);
   
@@ -59,17 +59,26 @@ const Content = () => {
   }));
 
   return (
-    <ContentContainer>
-      <div>{currentNumber}</div> {}
-      {combinedButtons.map((button, index) => (
-        <Button
-          key={index}
-          label={button.label}
-          onClick={() => handleClick(button.value)} 
-        />
-      ))}
-    </ContentContainer>
+    
+      <ContentLayout> {}
+
+            <Column span={4}>
+              <Input value={currentNumber} />
+            </Column>
+
+          <Row>
+            {combinedButtons.map((button, index) => (
+              <Column key={index} span={3}>
+                <Button
+                  label={button.label}
+                  onClick={() => handleClick(button.value)} 
+                />
+              </Column>
+            ))}
+          </Row>
+      </ContentLayout>
+
   );
 };
 
-export default Content;
+export default ContentComponent;
