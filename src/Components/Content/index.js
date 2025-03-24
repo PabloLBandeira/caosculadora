@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../Button'; 
-import { Content as ContentLayout, Row, Column } from './style'; 
 import Input from '../Input';
+import RandonNumber from '../Randon';
+
+import { Content as ContentLayout, Row, Column, Display } from './style'; 
 
 const generateButtonValues = () => {
   const fixedValues = ['C', '⌫', '=', '&'];
@@ -50,6 +52,7 @@ const generateButtonValues = () => {
 const ContentComponent = () => { 
   const [currentNumber, setCurrentNumber] = useState("0");
   const [randomValues, setRandomValues] = useState([]);
+  const [randomKey, setRandomKey] = useState(0);
 
   const buttonLabels = [
     'C', '⌫', '%', '÷',
@@ -62,8 +65,11 @@ const ContentComponent = () => {
   const handleClick = (label) => {
     if (label === 'C') {
       setCurrentNumber("0");
+      setRandomKey(prevKey => prevKey + 1);
+
     } else if (label === '⌫') {
       setCurrentNumber(prev => prev.slice(0, -1) || "0");
+      setRandomKey(prevKey => prevKey + 1);
     } else if (label === '=') {
       try {
         const expression = currentNumber.replace(/X/g, '*').replace(/÷/g, '/');
@@ -81,7 +87,7 @@ const ContentComponent = () => {
         setCurrentNumber("Erro");
       }
     } else if (['+', '-', 'X', '÷', '%'].includes(label)) {
-      setCurrentNumber(prev => prev + ' ' + label + ' ');
+      setCurrentNumber(prev => prev + '' + label + '');
     } else {
       setCurrentNumber(prev => prev === "0" ? label : prev + label);
     }
@@ -100,9 +106,12 @@ const ContentComponent = () => {
 
   return (
     <ContentLayout>
-      <Column span={4}>
-        <Input value={currentNumber} />
-      </Column>
+      <Display>
+        <RandonNumber key={randomKey}/>
+        <Column span={4}>
+          <Input value={currentNumber} />
+        </Column>
+      </Display>
 
       <Row>
         {combinedButtons.map((button, index) => (

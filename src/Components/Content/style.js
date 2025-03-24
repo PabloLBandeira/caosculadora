@@ -8,6 +8,15 @@ export const Content = styled.div`
     height: 100vh;
 `;
 
+export const Display = styled.div `
+  display: grid;
+  grid-template-columns: 20% 75%;
+  align-items: center;
+  margin: 0 .5rem;
+`
+
+
+
 
 export const Row = styled.div`
   display: grid;
