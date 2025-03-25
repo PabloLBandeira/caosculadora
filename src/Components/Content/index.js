@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Button from '../Button'; 
 import Input from '../Input';
 import RandonNumber from '../Randon';
+import Header from '../Header';
 
-import { Content as ContentLayout, Row, Column, Display } from './style'; 
+import { Content as ContentLayout, Row, Column, Display} from './style'; 
 
 const generateButtonValues = () => {
   const fixedValues = ['C', '⌫', '=', '&'];
@@ -106,23 +107,25 @@ const ContentComponent = () => {
 
   return (
     <ContentLayout>
-      <Display>
-        <RandonNumber key={randomKey}/>
-        <Column span={4}>
-          <Input value={currentNumber} />
-        </Column>
-      </Display>
+        <Header />
+          <Display>
+            <RandonNumber key={randomKey}/>
+              <Input value={currentNumber} />
+          </Display>
 
-      <Row>
-        {combinedButtons.map((button, index) => (
-          <Column key={index} span={3}>
-            <Button
-              label={button.label}
-              onClick={() => handleClick(button.value)} 
-            />
-          </Column>
-        ))}
-      </Row>
+          <Row>
+            {combinedButtons.map((button, index) => (
+              <Column>
+              <Button
+                label={button.label}
+                onClick={() => handleClick(button.value)}
+                isEqual={button.value === '='}
+                isOperator={['+', '-', 'X', '÷', '%', 'C', '⌫', '&'].includes(button.value)}
+                isNumber={['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'].includes(button.value)}
+              />
+              </Column>
+            ))}
+          </Row>
     </ContentLayout>
   );
 };

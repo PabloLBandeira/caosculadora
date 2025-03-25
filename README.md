@@ -1,8 +1,10 @@
 # Getting Started with Create React App
 
-WIP
+Welcome to Caosculadora! This project is a quirky, unpredictable calculator built with React, where button values change randomly each time you use them.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Are you feeling lucky with math? Let's go!
 
 ## Available Scripts
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const RandonContainer = styled.div `
-  background-color: white;
+    background-color:rgb(212, 212, 212);
 
   display: flex;
   flex-direction: column;
@@ -15,6 +15,7 @@ export const RandonContainer = styled.div `
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
     border: 0; 
     padding: 0 .6rem;
