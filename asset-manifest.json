@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/caosculadora/static/js/main.5424deac.js",
+    "static/js/453.4472c609.chunk.js": "/caosculadora/static/js/453.4472c609.chunk.js",
+    "index.html": "/caosculadora/index.html",
+    "main.5424deac.js.map": "/caosculadora/static/js/main.5424deac.js.map",
+    "453.4472c609.chunk.js.map": "/caosculadora/static/js/453.4472c609.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.5424deac.js"
+  ]
+}
