@@ -5,16 +5,23 @@ export const Content = styled.div`
   flex-direction: column;
   background-color:#d4d4d4;
   width: 100%;
+  height: 100%;
+  
 
   @media (min-width: 768px) {
   display: flex;
   flex-direction: column;
   width: 80%;
+  height:auto;
   margin: 0 auto;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 50%;
+    max-width: 900px;
+  }
+  @media (max-height: 640px ) {
+    transform: scale(0.8);
   }
 `;
 
@@ -35,10 +42,10 @@ export const Display = styled.div `
 `;
     
 export const Column = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90%;
-    height: 6rem;    
-    `;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  height: 6rem;    
+  `;
 
